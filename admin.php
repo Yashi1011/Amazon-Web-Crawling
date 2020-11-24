@@ -267,6 +267,22 @@ if(isset($_POST['download'])) {
     }
     fwrite($myfile, "]");
     fclose($myfile);
+
+    $f="file.json";   
+
+    $file = ("C:\\xampp\\htdocs\\task1\\file.json");
+
+    $filetype=filetype($file);
+
+    $filename=basename($file);
+
+    header ("Content-Type: ".$filetype);
+
+    header ("Content-Length: ".filesize($file));
+
+    header ("Content-Disposition: attachment; filename=".$filename);
+
+    readfile($file);
     echo '<div class="alert-box"><div class="alert alert-success" role="alert"> Data downloaded successfully! </div></div>';
 }
 ?>

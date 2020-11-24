@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="center">
+        <div class="page-header">
+            <div id="head">
+                <h1>Hi, Welcome to our site.</h1>
+                <h3>Click for more options</h3>
+            </div>
+            <br>
+            <p>
+            <div id="div1" style="display:none"><a href="login.php" class="btn btn-outline-success btn-lg">Login</a></div><br>
+            <div id="div2" style="display:none"><a href="register.php" class="btn btn-outline-info btn-lg">Register</a></div><br>
+            <div id="div3" style="display:none"><a href="forgotPassword.php" class="btn btn-outline-danger btn-lg">Forgot Password?</a></div><br>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $("h1").mouseenter(function () {
+            $(this).animate({ fontSize: '4em' }, 400);
+            $(this).css("color", "#c05555");
+        })
+        $("h1").mouseleave(function () {
+            $(this).animate({ fontSize: '3em' }, 200);
+            $(this).css("color", "black");
+        })
+        $("#head").click(function () {
+            $("#div1").fadeIn();
+            $("#div2").fadeIn(1000);
+            $("#div3").fadeIn(2000);
+        });
+    </script>
+</body>
+
+</html>

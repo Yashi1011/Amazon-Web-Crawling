@@ -43,7 +43,7 @@ if(isset($_POST['messagebtn'])){
         <div class="page-header">
             <h2>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h2>
             <p>
-                <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
+                <a href="logout.php" class="btn btn-danger">Log Out</a>
             </p>
         </div>
     </div>
