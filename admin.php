@@ -30,6 +30,13 @@ if($_SESSION["type"]=='user'){
             position: relative;
             margin: auto;
         }
+        body {
+            background: #7F7FD5;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+        }
     </style>
 </head>
 <body>
@@ -54,7 +61,7 @@ if($_SESSION["type"]=='user'){
                         <button name="showmessages">Show Messages</button>
                     </li>
                     <li>
-                        <button name="download">download Data</button>
+                        <button name="download">Download User Data</button>
                     </li>
                     <li>
                         <button name="logout">Log Out</button>
@@ -225,7 +232,7 @@ if(isset($_POST['showuser'])) {
     $sql = "SELECT username, phone, type, birth_date FROM $table_users";
     $out = mysqli_query($con, $sql);
     if (mysqli_num_rows($out) > 0) {
-        echo "<br><br><div><div class='container'><table class='table'><tr><td><b>Username</b></td><td><b>Phone</b></td><td><b>Date of Birth</b></td><td><b>Category</b></td></tr>";
+        echo "<br><div><div class='container'><table class='table'><tr><td><b>Username</b></td><td><b>Phone</b></td><td><b>Date of Birth</b></td><td><b>Category</b></td></tr>";
         // output data of each row
         while($row = $out->fetch_assoc()) {
             echo "<tr><td>" . $row["username"]. "</td><td>" .$row["phone"]. "</td><td>" . $row["birth_date"]. "</td><td>". $row["type"]. "</td></tr>";
@@ -240,7 +247,7 @@ if(isset($_POST['showmessages'])){
     $sql = "SELECT username, message, email FROM $table_messages";
     $result = $con->query($sql);
     if ($result->num_rows > 0) {
-        echo "<div><div class='container'><table class='table'><tr><td><b>Username</b></td><td><b>Message</b></td><td><b>Email</b></td></tr>";
+        echo "<br><div><div class='container'><table class='table'><tr><td><b>Username</b></td><td><b>Message</b></td><td><b>Email</b></td></tr>";
         // output data of each row
         while($row = $result->fetch_assoc()) {
             echo "<tr><td>" . $row["username"]. "</td><td>" .$row["message"]. "</td><td>" . $row["email"]. "</td></tr>";
@@ -268,13 +275,11 @@ if(isset($_POST['download'])) {
     fwrite($myfile, "]");
     fclose($myfile);
 
-    $f="file.json";   
-
     $file = ("C:\\xampp\\htdocs\\task1\\file.json");
 
     $filetype=filetype($file);
 
-    $filename=basename($file);
+    $filename="file.json";
 
     header ("Content-Type: ".$filetype);
 
