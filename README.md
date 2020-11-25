@@ -148,6 +148,14 @@ implement the Ajax, JQuery and JSON features.__
         $('#phone-number').mask('0000-000-000');
     })
     ```
+
+    - Used in admin page to toggle side bar.
+    ```js
+    $("#menu-toggle").click(function(e){
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    })
+    ```
     
   - JSON
     - All the user data is written into a file in `json` format.
